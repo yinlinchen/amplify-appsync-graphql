@@ -29,3 +29,26 @@
 	git push origin master
 	```
 
+* Initializing Amplify project
+    ```
+	amplify init
+	```
+    ```
+    ? Enter a name for the project amplifyappsync
+    The following configuration will be applied:
+
+    Project information
+    | Name: amplifyappsync
+    | Environment: dev
+    | Default editor: Visual Studio Code
+    | App type: javascript
+    | Javascript framework: react
+    | Source Directory Path: src
+    | Distribution Directory Path: build
+    | Build Command: npm run-script build
+    | Start Command: npm run-script start
+
+    ? Initialize the project with the above configuration? (Y/n) 
+    ```
+
+    
