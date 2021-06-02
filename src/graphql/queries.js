@@ -1,6 +1,29 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const fuzzySearch = /* GraphQL */ `
+  query FuzzySearch($keyword: String!, $limit: Int, $nextToken: String) {
+    fuzzySearch(keyword: $keyword, limit: $limit, nextToken: $nextToken) {
+      items {
+        collection_category
+        date
+        description
+        id
+        identifier
+        parent_collection
+        title
+        visibility
+        items {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;
 export const getCollection = /* GraphQL */ `
   query GetCollection($id: ID!) {
     getCollection(id: $id) {

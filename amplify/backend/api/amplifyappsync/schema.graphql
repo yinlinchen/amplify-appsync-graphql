@@ -31,3 +31,17 @@ type Item
   visibility: Boolean!
   collection: Collection @connection(name: "CollectionItems")
 }
+
+type Query {
+  fuzzySearch(
+    keyword: String!
+    limit: Int
+    nextToken: String
+  ): FuzzyObjectConnection
+}
+
+type FuzzyObjectConnection {
+  items: [Collection]
+  nextToken: String
+  total: Int
+}

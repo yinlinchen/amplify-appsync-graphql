@@ -1,0 +1,21 @@
+## Query.fuzzySearch.req.vtl
+## Objects of type Collection will be stored in the /collection index
+
+#set( $indexPath = "/collection/doc/_search" )
+{
+    "version": "2017-02-28",
+    "operation": "GET",
+    "path": "$indexPath.toLowerCase()",
+    "params": {
+        "body": {
+        	"query": {
+                "match" : {
+                    "title" : {
+                        "query" : $util.toJson($ctx.args.keyword),
+                        "fuzziness": "AUTO"
+                    }
+                }
+            }
+        }
+    }
+}
