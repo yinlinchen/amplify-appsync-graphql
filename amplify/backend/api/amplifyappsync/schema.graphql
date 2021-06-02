@@ -1,0 +1,31 @@
+type Collection 
+  @model
+  @key(
+    name: "Identifier"
+    fields: ["identifier"]
+    queryField: "collectionByIdentifier"
+  ) {
+  collection_category: String!
+  date: String
+  description: String
+  id: ID!
+  identifier: String!
+  parent_collection: [String!]
+  title: String!
+  visibility: Boolean!
+  items: [Item] @connection(name: "CollectionItems")
+}
+
+type Item 
+  @model 
+  @key(name: "Identifier", fields: ["identifier"], queryField: "itemByIdentifier") {
+  id: ID!
+  identifier: String!
+  item_category: String!
+  date: String
+  description: String
+  parent_collection: [String!]
+  title: String!
+  visibility: Boolean!
+  collection: Collection @connection(name: "CollectionItems")
+}
