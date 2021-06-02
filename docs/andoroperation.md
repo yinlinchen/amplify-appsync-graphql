@@ -11,7 +11,9 @@ The `bool` query allows you to combine any number of queries into a single query
 * Finally, the `must_not` clause causes matching documents to be excluded from the result set.
 
 `must`: To combine multiple clauses, use a binary and (query1 AND query2 AND query3).
+
 `must_not`: Combines multiple clauses with a binary not.
+
 `should`: Combines multiple clauses with a binary or (query 1 OR query2 OR query3). `minimum_should_match` parameter number of them should match (defaults to 1 if must is not present and 0 if must is present);
 
 

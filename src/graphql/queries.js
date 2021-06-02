@@ -168,6 +168,37 @@ export const andorSearch = /* GraphQL */ `
     }
   }
 `;
+export const fulltextCollections = /* GraphQL */ `
+  query FulltextCollections(
+    $allFields: String!
+    $limit: Int
+    $nextToken: String
+  ) {
+    fulltextCollections(
+      allFields: $allFields
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        collection_category
+        date
+        description
+        id
+        identifier
+        parent_collection
+        title
+        visibility
+        items {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;
 export const getCollection = /* GraphQL */ `
   query GetCollection($id: ID!) {
     getCollection(id: $id) {

@@ -61,6 +61,11 @@ type Query {
     limit: Int
     nextToken: String
   ): AndOrSearchObjectConnection
+  fulltextCollections(
+    allFields: String!
+    limit: Int
+    nextToken: String
+  ): SearchableCollectionConnection
 }
 
 union UnionSearchResult = Collection | Item
@@ -72,6 +77,12 @@ type AndOrSearchObjectConnection {
 }
 
 type FuzzyObjectConnection {
+  items: [Collection]
+  nextToken: String
+  total: Int
+}
+
+type SearchableCollectionConnection {
   items: [Collection]
   nextToken: String
   total: Int

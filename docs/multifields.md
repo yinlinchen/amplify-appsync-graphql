@@ -1,0 +1,18 @@
+# Search result from multiple fields
+
+
+
+```
+#set( $es_items = [] )
+#foreach( $entry in $context.result.hits.hits )
+  #if( !$foreach.hasNext )
+    #set( $nextToken = $entry.sort.get(0) )
+  #end
+  $util.qr($es_items.add($entry.get("_source")))
+#end
+$util.toJson({
+  "items": $es_items,
+  "total": $ctx.result.hits.total,
+  "nextToken": $nextToken
+})
+```
