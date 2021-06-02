@@ -28,6 +28,8 @@
 
 ## Examples
 * [Basic models](docs/basic.md)
+* [Enable basic search](docs/search.md)
+* [Fuzzy search](docs/fuzzysearch.md)
 
 ## Docs
 * [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html)

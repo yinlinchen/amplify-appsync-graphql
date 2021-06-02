@@ -201,3 +201,82 @@ export const itemByIdentifier = /* GraphQL */ `
     }
   }
 `;
+export const searchCollections = /* GraphQL */ `
+  query SearchCollections(
+    $filter: SearchableCollectionFilterInput
+    $sort: SearchableCollectionSortInput
+    $limit: Int
+    $nextToken: String
+    $from: Int
+  ) {
+    searchCollections(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+    ) {
+      items {
+        collection_category
+        date
+        description
+        id
+        identifier
+        parent_collection
+        title
+        visibility
+        items {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;
+export const searchItems = /* GraphQL */ `
+  query SearchItems(
+    $filter: SearchableItemFilterInput
+    $sort: SearchableItemSortInput
+    $limit: Int
+    $nextToken: String
+    $from: Int
+  ) {
+    searchItems(
+      filter: $filter
+      sort: $sort
+      limit: $limit
+      nextToken: $nextToken
+      from: $from
+    ) {
+      items {
+        id
+        identifier
+        item_category
+        date
+        description
+        parent_collection
+        title
+        visibility
+        collection {
+          collection_category
+          date
+          description
+          id
+          identifier
+          parent_collection
+          title
+          visibility
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+      total
+    }
+  }
+`;

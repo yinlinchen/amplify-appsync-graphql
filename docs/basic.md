@@ -1,4 +1,5 @@
 ## Create an Amplify React application
+
 * Create a new React application
     ```
 	create-react-app amplify-appsync-graphql

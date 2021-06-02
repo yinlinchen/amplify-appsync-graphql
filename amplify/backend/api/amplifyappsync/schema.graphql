@@ -1,5 +1,6 @@
 type Collection 
   @model
+  @searchable
   @key(
     name: "Identifier"
     fields: ["identifier"]
@@ -17,7 +18,8 @@ type Collection
 }
 
 type Item 
-  @model 
+  @model
+  @searchable
   @key(name: "Identifier", fields: ["identifier"], queryField: "itemByIdentifier") {
   id: ID!
   identifier: String!
