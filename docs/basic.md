@@ -104,8 +104,8 @@
 
 ## Demo dataset
 * Add records into to DynamoDB table
-    * [Collection table](collection.json)
-    * [Item table](item.json)
+    * [Collection table](../examples/collection.json)
+    * [Item table](../examples/item.json)
 
 ## Perform query in the AppSync console
 * Open AppSync Console
