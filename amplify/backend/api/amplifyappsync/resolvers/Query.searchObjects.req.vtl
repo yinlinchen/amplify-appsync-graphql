@@ -1,0 +1,24 @@
+#**
+The 'params' key accepts any valid Elasticsearch DSL expression.
+You must replace the <index>, <type>, and <field> placeholders with actual values.
+*#
+#set( $indexPath = "/*/doc/_search" )
+{
+  "version": "2018-05-29",
+  "operation":"GET",
+  "path":"$indexPath",
+  "params": {
+        "body": {
+            #if( $context.args.nextToken ) "search_after": [$util.toJson($context.args.nextToken)], #end
+            "size": #if( $context.args.limit ) $context.args.limit #else 10 #end,
+        	"query": {
+                "match" : {
+                    "title" : {
+                        "query" : $util.toJson($ctx.args.keyword),
+                        "fuzziness": "AUTO"
+                    }
+                }
+            }
+        }
+    }
+}

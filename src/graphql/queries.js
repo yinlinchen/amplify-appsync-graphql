@@ -84,6 +84,48 @@ export const unionSearch = /* GraphQL */ `
     }
   }
 `;
+export const searchObjects = /* GraphQL */ `
+  query SearchObjects($keyword: String!, $limit: Int, $nextToken: String) {
+    searchObjects(keyword: $keyword, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        identifier
+        date
+        description
+        title
+        visibility
+        parent_collection
+        ... on Collection {
+          collection_category
+          items {
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        ... on Item {
+          item_category
+          collection {
+            collection_category
+            date
+            description
+            id
+            identifier
+            parent_collection
+            title
+            visibility
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+      }
+      nextToken
+      total
+    }
+  }
+`;
 export const getCollection = /* GraphQL */ `
   query GetCollection($id: ID!) {
     getCollection(id: $id) {

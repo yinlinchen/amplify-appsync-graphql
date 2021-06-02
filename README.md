@@ -29,7 +29,9 @@
 * [Basic models](docs/basic.md)
 * [Enable basic search](docs/search.md)
 * [Fuzzy search](docs/fuzzysearch.md)
-* [Query for Interface/Union type with AND/OR operations]()
+* [Query for Interface type](docs/interfacetype.md)
+* [Query for Union type](docs/uniontype.md)
+* [Search with AND/OR operations]()
 * [Multi-fileds search]()
 * [geolocation search capabilities](https://docs.amplify.aws/cli/graphql-transformer/resolvers#add-a-custom-geolocation-search-resolver-that-targets-an-elasticsearch-domain-created-by-searchable)
 

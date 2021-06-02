@@ -1,4 +1,14 @@
-type Collection 
+interface Object {
+  id: ID!
+  identifier: String!
+  date: String
+  description: String
+  title: String!
+  visibility: Boolean!
+  parent_collection: [String!]
+}
+
+type Collection implements Object
   @model
   @searchable
   @key(
@@ -17,7 +27,7 @@ type Collection
   items: [Item] @connection(name: "CollectionItems")
 }
 
-type Item 
+type Item implements Object
   @model
   @searchable
   @key(name: "Identifier", fields: ["identifier"], queryField: "itemByIdentifier") {
@@ -41,12 +51,23 @@ type Query {
   unionSearch(
     query: String!
   ): UnionSearchResult
+  searchObjects(
+    keyword: String!
+    limit: Int
+    nextToken: String
+  ): SearchableObjectConnection
 }
 
 union UnionSearchResult = Collection | Item
 
 type FuzzyObjectConnection {
   items: [Collection]
+  nextToken: String
+  total: Int
+}
+
+type SearchableObjectConnection {
+  items: [Object]
   nextToken: String
   total: Int
 }
