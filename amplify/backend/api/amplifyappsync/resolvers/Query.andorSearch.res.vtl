@@ -1,0 +1,27 @@
+#**
+$context.result contains the full response of the Elasticsearch query.
+Select a subset of information or iterate through hits to return the
+same shape as is expected by this field.
+*#
+#set( $es_items = [] )
+#foreach( $entry in $context.result.hits.hits )
+  #if( !$foreach.hasNext )
+    #set( $nextToken = $entry.sort.get(0) )
+  #end
+  #foreach ( $mapEntry in $entry.entrySet() )
+    #if( $mapEntry.key == "_source" )
+      #if( $mapEntry.value.get("collection_category") )
+        $util.qr( $mapEntry.value.put("__typename", "Collection") )
+      #else
+        $util.qr( $mapEntry.value.put("__typename", "Item") )
+      #end
+    #end
+  #end
+  $util.qr( $es_items.add($entry.get("_source")) )
+#end
+
+$util.toJson({
+  "items": $es_items,
+  "total": $ctx.result.hits.total,
+  "nextToken": $nextToken
+})

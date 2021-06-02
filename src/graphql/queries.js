@@ -126,6 +126,48 @@ export const searchObjects = /* GraphQL */ `
     }
   }
 `;
+export const andorSearch = /* GraphQL */ `
+  query AndorSearch($category: String!, $limit: Int, $nextToken: String) {
+    andorSearch(category: $category, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        identifier
+        date
+        description
+        title
+        visibility
+        parent_collection
+        ... on Collection {
+          collection_category
+          items {
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        ... on Item {
+          item_category
+          collection {
+            collection_category
+            date
+            description
+            id
+            identifier
+            parent_collection
+            title
+            visibility
+            createdAt
+            updatedAt
+          }
+          createdAt
+          updatedAt
+        }
+      }
+      nextToken
+      total
+    }
+  }
+`;
 export const getCollection = /* GraphQL */ `
   query GetCollection($id: ID!) {
     getCollection(id: $id) {

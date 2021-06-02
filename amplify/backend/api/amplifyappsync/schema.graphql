@@ -56,9 +56,20 @@ type Query {
     limit: Int
     nextToken: String
   ): SearchableObjectConnection
+  andorSearch(
+    category: String!
+    limit: Int
+    nextToken: String
+  ): AndOrSearchObjectConnection
 }
 
 union UnionSearchResult = Collection | Item
+
+type AndOrSearchObjectConnection {
+  items: [Object]
+  nextToken: String
+  total: Int
+}
 
 type FuzzyObjectConnection {
   items: [Collection]
