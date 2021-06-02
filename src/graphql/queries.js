@@ -24,6 +24,66 @@ export const fuzzySearch = /* GraphQL */ `
     }
   }
 `;
+export const unionSearch = /* GraphQL */ `
+  query UnionSearch($query: String!) {
+    unionSearch(query: $query) {
+      ... on Collection {
+        collection_category
+        date
+        description
+        id
+        identifier
+        parent_collection
+        title
+        visibility
+        items {
+          items {
+            id
+            identifier
+            item_category
+            date
+            description
+            parent_collection
+            title
+            visibility
+            createdAt
+            updatedAt
+          }
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      ... on Item {
+        id
+        identifier
+        item_category
+        date
+        description
+        parent_collection
+        title
+        visibility
+        collection {
+          collection_category
+          date
+          description
+          id
+          identifier
+          parent_collection
+          title
+          visibility
+          items {
+            nextToken
+          }
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
 export const getCollection = /* GraphQL */ `
   query GetCollection($id: ID!) {
     getCollection(id: $id) {

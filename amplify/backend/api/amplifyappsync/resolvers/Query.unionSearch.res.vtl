@@ -1,0 +1,24 @@
+## Query.unionSearch.res.vtl
+
+#set( $items = [] )
+#foreach( $entry in $context.result.hits.hits )
+  #if( !$foreach.hasNext )
+    #set( $nextToken = "$entry.sort.get(0)" )
+  #end
+  #foreach ( $mapEntry in $entry.entrySet() )
+    #if( $mapEntry.key == "_source" )
+      #if( $mapEntry.value.get("collection_category") )
+        $util.qr( $mapEntry.value.put("__typename", "Collection") )
+      #else
+        $util.qr( $mapEntry.value.put("__typename", "Item") )
+      #end
+    #end
+  #end
+  $util.qr($items.add($entry.get("_source")))
+#end
+
+$util.toJson({
+  "items": $items,
+  "total": $ctx.result.hits.total,
+  "nextToken": $nextToken
+})
