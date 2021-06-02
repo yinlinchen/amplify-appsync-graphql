@@ -5,11 +5,11 @@
 * Update `Query` type
     ```
     type Query {
-    fuzzySearch(
-        keyword: String!
-        limit: Int
-        nextToken: String
-    ): FuzzyObjectConnection
+        fuzzySearch(
+            keyword: String!
+            limit: Int
+            nextToken: String
+        ): FuzzyObjectConnection
     }
     ```
 * Add custom fuzzy query type
@@ -60,7 +60,7 @@
     }) 
     ```
 
-* Add new resolvers resource in custom stack
+### Add new resolvers resource in custom stack
     ```
     "QueryFuzzySearchResolver": {
         "Type": "AWS::AppSync::Resolver",

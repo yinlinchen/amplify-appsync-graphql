@@ -26,14 +26,14 @@
     * Example: [CustomResource.json](examples/CustomResource.json)
 
 ## Examples
-* [Basic models](docs/basic.md)
-* [Enable basic search](docs/search.md)
-* [Fuzzy search](docs/fuzzysearch.md)
-* [Query for Interface type](docs/interfacetype.md)
-* [Query for Union type](docs/uniontype.md)
-* [Search with AND/OR operations]()
-* [Multi-fileds search]()
-* [geolocation search capabilities](https://docs.amplify.aws/cli/graphql-transformer/resolvers#add-a-custom-geolocation-search-resolver-that-targets-an-elasticsearch-domain-created-by-searchable)
+1. [Basic models](docs/basic.md)
+2. [Enable basic search](docs/search.md)
+3. [Fuzzy search](docs/fuzzysearch.md)
+4. [Query for Interface type](docs/interfacetype.md)
+5. [Search with AND/OR operations]()
+6. [Multi-fields search]()
+7. [Query for Union type](docs/uniontype.md)
+8. [geolocation search capabilities](https://docs.amplify.aws/cli/graphql-transformer/resolvers#add-a-custom-geolocation-search-resolver-that-targets-an-elasticsearch-domain-created-by-searchable)
 
 ## Docs
 * [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html)
