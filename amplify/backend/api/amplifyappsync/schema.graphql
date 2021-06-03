@@ -52,6 +52,8 @@ type Query {
     query: String!
   ): UnionSearchResult
   searchObjects(
+    sort: SearchableObjectSortInput
+    filter: SearchableObjectFilterInput
     keyword: String!
     limit: Int
     nextToken: String
@@ -92,4 +94,74 @@ type SearchableObjectConnection {
   items: [Object]
   nextToken: String
   total: Int
+}
+
+input SearchableObjectFilterInput {
+  id: SearchableIDFilterInput
+  title: SearchableStringFilterInput
+  identifier: SearchableStringFilterInput
+  description: SearchableStringFilterInput
+  date: SearchableStringFilterInput
+  visibility: SearchableBooleanFilterInput
+  parent_collection: SearchableStringFilterInput
+  and: [SearchableObjectFilterInput]
+  or: [SearchableObjectFilterInput]
+  not: SearchableObjectFilterInput
+}
+
+input SearchableObjectSortInput {
+  field: SearchableObjectSortableFields
+  direction: SearchableSortDirection
+}
+
+enum SearchableObjectSortableFields {
+  id
+  title
+  identifier
+  description
+  date
+}
+
+input SearchableIDFilterInput {
+	ne: ID
+	gt: ID
+	lt: ID
+	gte: ID
+	lte: ID
+	eq: ID
+	match: ID
+	matchPhrase: ID
+	matchPhrasePrefix: ID
+	multiMatch: ID
+	exists: Boolean
+	wildcard: ID
+	regexp: ID
+	range: [ID]
+}
+
+input SearchableStringFilterInput {
+	ne: String
+	gt: String
+	lt: String
+	gte: String
+	lte: String
+	eq: String
+	match: String
+	matchPhrase: String
+	matchPhrasePrefix: String
+	multiMatch: String
+	exists: Boolean
+	wildcard: String
+	regexp: String
+	range: [String]
+}
+
+input SearchableBooleanFilterInput {
+	eq: Boolean
+	ne: Boolean
+}
+
+enum SearchableSortDirection {
+	asc
+	desc
 }

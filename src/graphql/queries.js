@@ -85,8 +85,20 @@ export const unionSearch = /* GraphQL */ `
   }
 `;
 export const searchObjects = /* GraphQL */ `
-  query SearchObjects($keyword: String!, $limit: Int, $nextToken: String) {
-    searchObjects(keyword: $keyword, limit: $limit, nextToken: $nextToken) {
+  query SearchObjects(
+    $sort: SearchableObjectSortInput
+    $filter: SearchableObjectFilterInput
+    $keyword: String!
+    $limit: Int
+    $nextToken: String
+  ) {
+    searchObjects(
+      sort: $sort
+      filter: $filter
+      keyword: $keyword
+      limit: $limit
+      nextToken: $nextToken
+    ) {
       items {
         id
         identifier
