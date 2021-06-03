@@ -44,7 +44,7 @@ To support querying multiple record fields in a single query.
 }
 ```
 
-* 
+* Query.fulltextCollections.res.vtl
 ```
 #set( $es_items = [] )
 #foreach( $entry in $context.result.hits.hits )

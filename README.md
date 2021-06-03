@@ -31,8 +31,8 @@
 3. [Fuzzy search](docs/fuzzysearch.md)
 4. [Query for Interface type](docs/interfacetype.md)
 5. [Search with AND/OR operations](docs/andoroperation.md)
-6. [Multi-fields search]()
-7. [Custom searchable input]()
+6. [Multi-fields search](docs/multifields.md) 
+7. [Custom searchable input](docs/searchableinput.md)
 7. [Query for Union type](docs/uniontype.md)
 8. [geolocation search capabilities](https://docs.amplify.aws/cli/graphql-transformer/resolvers#add-a-custom-geolocation-search-resolver-that-targets-an-elasticsearch-domain-created-by-searchable)
 
