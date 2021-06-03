@@ -114,42 +114,43 @@ The `bool` query allows you to combine any number of queries into a single query
     ```
 
 ### Add new resolvers resource in custom stack
-    ```
-    "QueryAndorSearchResolver": {
-        "Type": "AWS::AppSync::Resolver",
-        "Properties": {
-            "ApiId": {
-            "Ref": "AppSyncApiId"
+
+```
+"QueryAndorSearchResolver": {
+    "Type": "AWS::AppSync::Resolver",
+    "Properties": {
+        "ApiId": {
+        "Ref": "AppSyncApiId"
+        },
+        "DataSourceName": "ElasticSearchDomain",
+        "TypeName": "Query",
+        "FieldName": "andorSearch",
+        "RequestMappingTemplateS3Location": {
+        "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.andorSearch.req.vtl",
+            {
+            "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
             },
-            "DataSourceName": "ElasticSearchDomain",
-            "TypeName": "Query",
-            "FieldName": "andorSearch",
-            "RequestMappingTemplateS3Location": {
-            "Fn::Sub": [
-                "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.andorSearch.req.vtl",
-                {
-                "S3DeploymentBucket": {
-                    "Ref": "S3DeploymentBucket"
-                },
-                "S3DeploymentRootKey": {
-                    "Ref": "S3DeploymentRootKey"
-                }
-                }
-            ]
-            },
-            "ResponseMappingTemplateS3Location": {
-            "Fn::Sub": [
-                "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.andorSearch.res.vtl",
-                {
-                "S3DeploymentBucket": {
-                    "Ref": "S3DeploymentBucket"
-                },
-                "S3DeploymentRootKey": {
-                    "Ref": "S3DeploymentRootKey"
-                }
-                }
-            ]
+            "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
             }
+            }
+        ]
+        },
+        "ResponseMappingTemplateS3Location": {
+        "Fn::Sub": [
+            "s3://${S3DeploymentBucket}/${S3DeploymentRootKey}/resolvers/Query.andorSearch.res.vtl",
+            {
+            "S3DeploymentBucket": {
+                "Ref": "S3DeploymentBucket"
+            },
+            "S3DeploymentRootKey": {
+                "Ref": "S3DeploymentRootKey"
+            }
+            }
+        ]
         }
-        }
-    ```
+    }
+}
+```
