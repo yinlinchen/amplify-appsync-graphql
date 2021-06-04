@@ -50,7 +50,7 @@ type Query {
   ): FuzzyObjectConnection
   unionSearch(
     query: String!
-  ): UnionSearchResult
+  ): UnionSearchResultConnection
   searchObjects(
     sort: SearchableObjectSortInput
     filter: SearchableObjectFilterInput
@@ -94,6 +94,12 @@ type SearchableObjectConnection {
   items: [Object]
   nextToken: String
   total: Int
+}
+
+type UnionSearchResultConnection {
+	items: [UnionSearchResult]
+	nextToken: String
+	total: Int
 }
 
 input SearchableObjectFilterInput {
