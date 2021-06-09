@@ -36,5 +36,8 @@
 7. [Query for Union type](docs/uniontype.md)
 8. [geolocation search capabilities](https://docs.amplify.aws/cli/graphql-transformer/resolvers#add-a-custom-geolocation-search-resolver-that-targets-an-elasticsearch-domain-created-by-searchable)
 
+## Launching the example app
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/yinlinchen/amplify-appsync-graphql)
+
 ## Docs
 * [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html)
