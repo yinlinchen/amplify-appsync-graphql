@@ -128,3 +128,16 @@ $util.toJson({
     }
 }
 ```
+
+* Query example
+```
+query DemoQuery {
+  searchObjects(keyword: "Ms1994") {
+    items {
+      id
+      title
+      date
+    }
+  }
+}
+```
