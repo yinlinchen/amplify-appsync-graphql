@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "keyDescription": "appsync examples"
+    },
+    "conflictResolution": {},
+    "apiName": "amplifyappsync"
+  }
+}

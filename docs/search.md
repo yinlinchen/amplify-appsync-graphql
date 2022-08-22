@@ -63,6 +63,7 @@ This will overwrite your current graphql queries, mutations and subscriptions Ye
 * Search records
 There is a search`<Type>` in the Quey tyep. E.g. `searchItems`.
 
+* Query example
 ```
 query DemoQuery {
   searchItems(filter: {item_category: { match: "demo"}}) {

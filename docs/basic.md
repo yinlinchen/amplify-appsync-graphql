@@ -115,7 +115,7 @@
 
 	Please select from one of the below mentioned services GraphQL
 	```
-* Queries
+* Query example
 ```
 query DemoQuery {
   listItems {
